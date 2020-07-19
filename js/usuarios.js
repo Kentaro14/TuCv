@@ -20,9 +20,6 @@ const userId=localStorage.getItem("usuario");
 //------------------ Conexion a Backend ------------//
 
 $(document).ready(function () {
-    if(localStorage.getItem("Rol")!="Administrador"){
-        window.location.href = "cv.html";
-    }
     getUsuarios();
 });
 
