@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Ocupaciones</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/817b833d26.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <a class="navbar-brand" href="#">Tu CV</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="cv.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mis-datos.html">Mis Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="entidades.html">Entidades</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="ocupaciones.html">Ocupaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experiencia.html">Experiencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formacion.html">Formaci&oacuten</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li id="nav-usuarios" class="nav-item" hidden>
+                        <a class="nav-link" href="usuarios.html"><i class="fas fa-users"></i> Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mi-cuenta.html"><i class="fas fa-user-circle"></i> Mi Cuenta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="logout" class="nav-link" href=""><i class="fas fa-sign-out-alt"></i> Cerrar Sesi&oacuten</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid mis-datos">
+        <h2 class="title">Ocupaciones</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Entidad</th>
+                        <th scope="col">Nombre de Ocupaci&oacuten</th>
+                        <th scope="col" style="text-align: center;">Año de Inicio</th>
+                        <th scope="col" style="text-align: center;">Año de Fin</th>
+                        <th scope="col" style="text-align: center;">Acci&oacuten</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- FORMULARIO REGISTRAR OCUPACION -->
+
+        <div class="modal fade" id="agregar-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titulo-agregar">Agregar Ocupaci&oacuten</h5>
+                    </div>
+                    <form autocomplete="off" id="formulario-agregar">
+                        <div class="modal-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="select-entidad">Entidad</label>
+                                    <select class="form-control custom-select select-ocupaciones" id="select-entidad" data-modal="agregar" data-campo="entidad">
+                                        <option disabled selected="selected">Seleccione Entidad...</option>
+                                    </select>
+                                    <div class="invalid-feedback">*Se requiere seleccionar una Entidad.</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="input-nombre">Nombre</label>
+                                    <input type="text" class="form-control input-ocupaciones" id="input-nombre" data-modal="agregar" data-campo="nombre" maxlength="250">
+                                    <small class="form-text text-muted limite" hidden>Llegaste al limite de 250 caracteres.</small>
+                                    <div class="invalid-feedback">*Se requiere Nombre (Max. 250 Caracteres).</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-detalle">Detalle</label>
+                                <textarea class="form-control input-ocupaciones" id="input-detalle" rows="5" data-modal="agregar" data-campo="detalle"></textarea>
+                                <small id="palabras" class="form-text text-muted">Palabras restantes: <span id="restantes-agregar">30</span></small>
+                                <div class="invalid-feedback">*Se requiere Detalle.</div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="input-fecha-inicio">Fecha de Inicio</label>
+                                    <div class="datepicker date input-group p-0 shadow-sm datepicker-inicio">
+                                        <input type="text" class="form-control input-ocupaciones" id="input-fecha-inicio" data-modal="agregar" data-campo="inicio">
+                                        <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="input-fecha-fin">Fecha de Fin</label>
+                                    <div class="datepicker date input-group p-0 shadow-sm datepicker-fin">
+                                        <input type="text" class="form-control input-ocupaciones" id="input-fecha-fin" data-modal="agregar" data-campo="fin">
+                                        <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btn-agregar" class="btn btn-primary" disabled>Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO ACTUALIZAR OCUPACION -->
+
+        <div class="modal fade" id="actualizar-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titulo-actualizar">Actualizar Ocupaci&oacuten</h5>
+                    </div>
+                    <form autocomplete="off" id="formulario-actualizar">
+                        <div class="modal-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="select-entidad-actualizar">Entidad</label>
+                                    <select class="form-control custom-select select-ocupaciones" id="select-entidad-actualizar" data-modal="actualizar" data-campo="entidad">
+                                        <option disabled selected="selected">Seleccione Entidad...</option>
+                                    </select>
+                                    <div class="invalid-feedback">*Se requiere seleccionar una Entidad.</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="input-nombre-actualizar">Nombre</label>
+                                    <input type="text" class="form-control input-ocupaciones" id="input-nombre-actualizar" data-modal="actualizar" data-campo="nombre" maxlength="250">
+                                    <small class="form-text text-muted limite" hidden>Llegaste al limite de 250 caracteres.</small>
+                                    <div class="invalid-feedback">*Se requiere Nombre (Max. 250 Caracteres).</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-detalle-actualizar">Detalle</label>
+                                <textarea class="form-control input-ocupaciones" id="input-detalle-actualizar" rows="5" data-modal="actualizar" data-campo="detalle"></textarea>
+                                <small id="palabras" class="form-text text-muted">Palabras restantes: <span id="restantes-actualizar"></span></small>
+                                <div class="invalid-feedback">*Se requiere Detalle.</div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="input-fecha-inicio-actualizar">Fecha de Inicio</label>
+                                    <div class="datepicker date input-group p-0 shadow-sm datepicker-inicio">
+                                        <input type="text" class="form-control input-ocupaciones" id="input-fecha-inicio-actualizar" data-modal="actualizar" data-campo="inicio">
+                                        <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="input-fecha-fin-actualizar">Fecha de Fin</label>
+                                    <div class="datepicker date input-group p-0 shadow-sm datepicker-fin">
+                                        <input type="text" class="form-control input-ocupaciones" id="input-fecha-fin-actualizar" data-modal="actualizar" data-campo="fin">
+                                        <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btn-actualizar" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#agregar-modal"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.es.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/ocupaciones.js"></script>
+</body>
+
+</html>
