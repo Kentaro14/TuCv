@@ -1,0 +1,113 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2,.modal-header{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar {
+    padding: 8px 15%;
+    background-color: #222831;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+    color: #00adb5 !important;
+}
+
+.container-fluid {
+    padding: 3% 15%;
+    margin-top: 56px;
+}
+
+/* Modal */
+
+.modal-header,
+.modal-footer {
+    background-color: #393e46;
+    color: #eeeeee;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+td button {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+td button:focus {
+    outline: none;
+}
+
+.edit-button {
+    color: #00adb5;
+}
+
+.delete-button {
+    color: #393e46;
+}
+
+/* Date Picker */
+
+.datepicker td,
+.datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+}
+
+.datepicker table tr td.active {
+    background-image: none;
+}
+
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active {
+    background-color: #00adb5;
+}
+
+.datepicker table tr td.active:hover {
+    background-image: none;
+    background-color: #00adb5;
+}
+
+/* Modal */
+
+
+
+/* Custom Scrollbar using CSS */
+.custom-scrollbar-css {
+    overflow-y: scroll;
+}
+
+/* scrollbar width */
+.custom-scrollbar-css::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* scrollbar track */
+.custom-scrollbar-css::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+/* scrollbar handle */
+.custom-scrollbar-css::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: #00d2ff;
+    background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+}
+
+/* CV */
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
